@@ -21,11 +21,13 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CrudFormService } from './shared/crud-form.service';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { DeleteDialogComponent } from './dialog/delete-dialog/delete-dialog.component';
 @NgModule({
   declarations: [
     AppComponent,
     StudentListComponent,
-    AddDialogComponent
+    AddDialogComponent,
+    DeleteDialogComponent
   ],
   imports: [
     BrowserModule,

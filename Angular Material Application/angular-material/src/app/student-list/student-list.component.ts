@@ -15,6 +15,7 @@ import {
 import { CrudFormService, Student } from '../shared/crud-form.service';
 import { MatSort } from '@angular/material/sort';
 import { AddDialogComponent } from '../dialog/add-dialog/add-dialog.component';
+import { DeleteDialogComponent } from '../dialog/delete-dialog/delete-dialog.component';
 
 @Component({
   selector: 'app-student-list',
@@ -57,25 +58,22 @@ export class StudentListComponent implements OnInit {
   @ViewChild(MatTable)
   table!: MatTable<any>;
   delete(element: Student): void {
-    // const confirmDialog = this.dialogdelete.open(DeleteDialogComponent, {
-    //   data: {
-    //     message:
-    //       'Are you sure, you want to remove this language: ' +
-    //       element.language +
-    //       ' (' +
-    //       element.abbreviation +
-    //       ')',
-    //   },
-    // });
-    // confirmDialog.afterClosed().subscribe((result) => {
-    //   if (result === true) {
-    //     var index = this.service.ELEMENT_DATA.indexOf(element);
-    //     if (index > -1) {
-    //       this.service.ELEMENT_DATA.splice(index, 1);
-    //       this.table.renderRows();
-    //     }
-    //   }
-    // });
+    const confirmDialog = this.dialogdelete.open(DeleteDialogComponent, {
+      data: {
+        message:
+          'Are you sure, you want to remove this student: ' +
+          element.fullName
+      },
+    });
+    confirmDialog.afterClosed().subscribe((result) => {
+      if (result === true) {
+        var index = this.service.ELEMENT_DATA.indexOf(element);
+        if (index > -1) {
+          this.service.ELEMENT_DATA.splice(index, 1);
+          this.table.renderRows();
+        }
+      }
+    });
   }
 
   isDuplicate(element: Student) {

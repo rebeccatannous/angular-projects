@@ -1,0 +1,21 @@
+.deletebtn{
+  margin-right: 5px;
+}
+
+.confirmdelete{
+  background-color: red;
+  color: white;
+}
+
+.confirmdelete:hover{
+  background-color: rgb(255, 65, 65);
+}
+.canceldelete{
+  background-color:#ecc1c3 ;
+    color: white;
+
+}
+.canceldelete:hover{
+  background-color:#c79b9d ;
+
+}
