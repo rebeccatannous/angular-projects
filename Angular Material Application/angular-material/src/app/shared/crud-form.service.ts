@@ -13,7 +13,6 @@ export interface Student {
   providedIn: 'root'
 })
 export class CrudFormService {
-  DataFile!:File;
   message: string = 'Student Exists';
   actionButtonLabel: string = 'Confirm';
   action: boolean = true;
@@ -53,11 +52,9 @@ export class CrudFormService {
     ]),
     dateOfBirth: new FormControl('', [
       Validators.required,
-      Validators.maxLength(2),
-      Validators.pattern('^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$. '),
     ]),
     idCopy: new FormControl(null, Validators.required),
-    gpa: new FormControl('', Validators.pattern('/^[0-4]\.\d\d$/')),
+    gpa: new FormControl('', Validators.required),
   });
 
   setIndex(i: any) {
@@ -85,8 +82,8 @@ export class CrudFormService {
   isDuplicate(element: Student) {
     for (let i = 0; i < this.ELEMENT_DATA.length; i++) {
       if (
-        element.fullName.toLowerCase() ==
-     this.ELEMENT_DATA[i].fullName.toLowerCase()
+        (element.fullName.toLowerCase() ==
+     this.ELEMENT_DATA[i].fullName.toLowerCase()) && i!=this.index
       )
         return true;
     }

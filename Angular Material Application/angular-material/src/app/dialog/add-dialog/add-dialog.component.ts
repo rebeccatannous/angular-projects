@@ -29,7 +29,6 @@ fileType!:boolean;
       ]),
       dateOfBirth: new FormControl('', [
         Validators.required,
-        Validators.maxLength(2),
 
       ]),
       idCopy: new FormControl(null, Validators.required),

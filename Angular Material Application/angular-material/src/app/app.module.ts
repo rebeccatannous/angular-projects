@@ -22,12 +22,15 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CrudFormService } from './shared/crud-form.service';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import { DeleteDialogComponent } from './dialog/delete-dialog/delete-dialog.component';
+import { EditDialogComponent } from './dialog/edit-dialog/edit-dialog.component';
+import { MaterialFileInputModule } from 'ngx-material-file-input';
 @NgModule({
   declarations: [
     AppComponent,
     StudentListComponent,
     AddDialogComponent,
-    DeleteDialogComponent
+    DeleteDialogComponent,
+    EditDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -39,6 +42,7 @@ import { DeleteDialogComponent } from './dialog/delete-dialog/delete-dialog.comp
     MatSelectModule,
     ReactiveFormsModule,
     MatFormFieldModule,
+    MaterialFileInputModule,
     MatPaginatorModule,
     MatButtonModule,
     MatCardModule,

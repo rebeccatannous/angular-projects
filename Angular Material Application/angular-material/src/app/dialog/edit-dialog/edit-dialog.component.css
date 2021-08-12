@@ -1,0 +1,86 @@
+::ng-deep .mat-focused .mat-form-field-label {
+  color: #be9ea0 !important;
+}
+
+::ng-deep.mat-form-field-underline {
+  background-color: #f7e1e2 !important;
+}
+
+::ng-deep.mat-form-field-ripple {
+  background-color: #f7e1e2 !important;
+}
+mat-form-field {
+  margin-bottom: 7px;
+}
+
+.cancel:hover {
+  background-color: #f83838;
+  color: white;
+}
+.adddialog {
+  text-align: center;
+}
+.submit:hover:enabled {
+  background-color: #c79b9d;
+  color: white;
+}
+
+.submit {
+  background-color: #ecc1c3;
+}
+
+::ng-deep.mat-icon {
+  color: #489ceb;
+}
+
+mat-icon:hover {
+  color: #a6d4ff;
+}
+input[type="file"]::file-selector-button {
+  box-sizing: border-box;
+  position: relative;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+  display: inline-block;
+  white-space: nowrap;
+  text-decoration: none;
+  vertical-align: baseline;
+  text-align: center;
+  margin: 0;
+  min-width: 64px;
+  line-height: 36px;
+  padding: 0 16px;
+  border-radius: 4px;
+  overflow: visible;
+  transform: translate3d(0, 0, 0);
+  box-shadow: 0px 3px 1px -2px rgb(0 0 0 / 20%),
+    0px 2px 2px 0px rgb(0 0 0 / 14%), 0px 1px 5px 0px rgb(0 0 0 / 12%);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  appearance: auto;
+  text-rendering: auto;
+  color: -internal-light-dark(black, white);
+  letter-spacing: normal;
+  word-spacing: normal;
+  text-transform: none;
+  text-indent: 0px;
+  text-shadow: none;
+  display: inline-block;
+  text-align: center;
+  align-items: flex-start;
+  cursor: default;
+  background-color: #ecc1c3;
+  color: white;
+  margin-right: 5px;
+  margin-bottom: 10px;
+}
+input[type="file"]::file-selector-button:hover {
+  background-color: #c79b9d;
+}

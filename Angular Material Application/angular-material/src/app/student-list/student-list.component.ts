@@ -16,6 +16,7 @@ import { CrudFormService, Student } from '../shared/crud-form.service';
 import { MatSort } from '@angular/material/sort';
 import { AddDialogComponent } from '../dialog/add-dialog/add-dialog.component';
 import { DeleteDialogComponent } from '../dialog/delete-dialog/delete-dialog.component';
+import { EditDialogComponent } from '../dialog/edit-dialog/edit-dialog.component';
 
 @Component({
   selector: 'app-student-list',
@@ -53,7 +54,7 @@ export class StudentListComponent implements OnInit {
     private _snackBar: MatSnackBar
   ) {}
   AddDialogRef!: MatDialogRef<AddDialogComponent>;
-  // EditDialogRef!: MatDialogRef<EditDialogComponent>;
+  EditDialogRef!: MatDialogRef<EditDialogComponent>;
 
   @ViewChild(MatTable)
   table!: MatTable<any>;
@@ -104,14 +105,11 @@ export class StudentListComponent implements OnInit {
         ) {
           var index = this.service.ELEMENT_DATA.indexOf(result);
           this.service.ELEMENT_DATA[index] = result;
-          this.service.ELEMENT_DATA[index].idCopy = this.service.DataFile;
-          console.log(this.service.DataFile + 's');
+
           this.table.renderRows();
         } else {
           if (!this.isDuplicate(result)) {
-            result.idCopy = this.service.DataFile;
             this.service.ELEMENT_DATA.push(result);
-            console.log(this.service.DataFile + 's');
             this.table.renderRows();
           } else {
             this.open();
@@ -127,15 +125,15 @@ export class StudentListComponent implements OnInit {
   }
 
   onEdit(element: Student) {
-    // var index = this.service.ELEMENT_DATA.indexOf(element);
-    // this.service.setIndex(index);
-    // this.service.populate(element);
-    // this.EditDialogRef = this.dialog.open(EditDialogComponent, {
-    //   width: '250px',
-    // });
-    // this.EditDialogRef.afterClosed().subscribe((result) => {
-    //   this.table.renderRows();
-    // });
+    var index = this.service.ELEMENT_DATA.indexOf(element);
+    this.service.setIndex(index);
+    this.service.populate(element);
+    this.EditDialogRef = this.dialog.open(EditDialogComponent, {
+      width: '250px',
+    });
+    this.EditDialogRef.afterClosed().subscribe((result) => {
+      this.table.renderRows();
+    });
   }
 
   render() {
