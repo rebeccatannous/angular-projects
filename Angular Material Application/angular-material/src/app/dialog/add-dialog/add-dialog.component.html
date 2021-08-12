@@ -1,0 +1,51 @@
+<h1 mat-dialog-title>Add Student</h1>
+
+ <form [formGroup]=form >
+
+  <mat-form-field appearance="fill">
+    <mat-label>Full Name</mat-label>
+    <input matInput formControlName="fullName">
+    <mat-error *ngIf="form.controls['fullName'].errors?.maxlength && !form.controls['fullName'].errors?.pattern ">Max length 50</mat-error>
+    <mat-error *ngIf="form.controls['fullName'].errors?.required">This field is required</mat-error>
+    <mat-error *ngIf="form.controls['fullName'].errors?.pattern && form.controls['fullName'].errors?.maxlength">Invalid Field</mat-error>
+
+  </mat-form-field>
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>Date of Birth</mat-label>
+    <input matInput formControlName="dateOfBirth">
+
+    <mat-error *ngIf="form.controls['dateOfBirth'].errors?.maxlength && !form.controls['dateOfBirth'].errors?.pattern ">Max length 2</mat-error>
+    <mat-error *ngIf="form.controls['dateOfBirth'].errors?.required">This field is required</mat-error>
+    <mat-error *ngIf="form.controls['dateOfBirth'].errors?.pattern && !form.controls['dateOfBirth'].errors?.maxlength">Invalid Field</mat-error>
+    <mat-error *ngIf="form.controls['dateOfBirth'].errors?.pattern && form.controls['dateOfBirth'].errors?.maxlength">Invalid Field</mat-error>
+
+
+
+  </mat-form-field>
+  <br>
+
+    <input formControlName="idCopy" type="file" (change)="onChange($event)">
+    <mat-error *ngIf="form.controls['idCopy'].errors?.required">This field is required</mat-error>
+    <mat-error *ngIf="fileType">ID can only be an image</mat-error>
+
+  <br>
+  <mat-form-field appearance="fill">
+    <mat-label>GPA</mat-label>
+    <input matInput formControlName="gpa">
+
+    <mat-error *ngIf="form.controls['gpa'].errors?.maxlength && !form.controls['gpa'].errors?.pattern ">Max length 2</mat-error>
+    <mat-error *ngIf="form.controls['gpa'].errors?.required">This field is required</mat-error>
+    <mat-error *ngIf="form.controls['gpa'].errors?.pattern && form.controls['gpa'].errors?.maxlength">Invalid Field</mat-error>
+    <mat-error *ngIf="form.controls['gpa'].errors?.pattern && !form.controls['gpa'].errors?.maxlength">Invalid Field</mat-error>
+
+
+
+  </mat-form-field>
+  <br>
+
+  <div mat-dialog-actions>
+  <button mat-raised-button type="submit"  class="submit adddialog" [disabled]="form.invalid || fileType" (click)="submit()">Add</button>
+  <button mat-raised-button class="cancel adddialog" (click)="onNoClick()">Cancel</button>
+</div>
+  </form>

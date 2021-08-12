@@ -13,6 +13,7 @@ export interface Student {
   providedIn: 'root'
 })
 export class CrudFormService {
+  DataFile!:File;
   message: string = 'Student Exists';
   actionButtonLabel: string = 'Confirm';
   action: boolean = true;
